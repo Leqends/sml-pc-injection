@@ -4,7 +4,10 @@ project(canvas VERSION 0.1.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MD -D_ITERATOR_DEBUG_LEVEL=0")
+
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT -D_ITERATOR_DEBUG_LEVEL=0")
+endif()
 
 # Uncomment if you want to see compile commands
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -58,7 +61,7 @@ add_library(
 set(LIBMEM_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/release/libmem.lib)
 set(VULKAN_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/vulkan.lib)
 set(MINHOOK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/release/minhook.lib)
-set(COPY_TO ${CMAKE_CURRENT_SOURCE_DIR}/That_Sky_Mod/lib/release/powrprof.lib)
+#set(COPY_TO ${CMAKE_CURRENT_SOURCE_DIR}/mod-demo/canvas/release/canvas.lib)
 
 # Include directories
 include_directories(
